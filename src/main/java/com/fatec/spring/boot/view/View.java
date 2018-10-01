@@ -16,7 +16,15 @@ public class View {
 	 * @author Sham
 	 *
 	 */
-	public static class UsuarioFull{
+	public static class UsuarioFull extends UsuarioSimples {
+		
+	}
+	
+	public static class ImagemSimples{
+		
+	}
+	
+	public static class imagemFull extends ImagemSimples {
 		
 	}
 }

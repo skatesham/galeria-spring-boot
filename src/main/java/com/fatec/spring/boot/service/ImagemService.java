@@ -15,5 +15,7 @@ public interface ImagemService {
 	public Optional<Imagem> lerImagemById(long id);
 	
 	public Set<Imagem> lerImagensByUsuario(Usuario usuario);
+	
+	public Set<Imagem> lerImagensByUsuarioEmail(String email);
 
 }

@@ -42,9 +42,9 @@ public class UsuarioServiceImpl implements UsuarioService {
 
 	@Override
 	@Transactional
-	public Optional<Usuario> atualizarUsuario(Usuario usuario, Usuario atualizacao) {
-		System.out.println("Not Suported Yet");
-		return null;
+	public Usuario atualizarUsuario(Usuario usuario) {
+		usuario = usuarioRepository.save(usuario);
+		return usuario;
 	}
 
 }

@@ -12,4 +12,5 @@ public interface ImagemRepository extends CrudRepository<Imagem, Long> {
 
 	public Set<Imagem> findByUsuario(Usuario usuario);
 
+	public Set<Imagem> findByUsuarioEmail(String email);
 }

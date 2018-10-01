@@ -14,6 +14,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonView;
+import com.fatec.spring.boot.repository.Criptografia;
 import com.fatec.spring.boot.view.View;
 
 @Entity
@@ -23,32 +24,31 @@ public class Usuario {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "usr_id")
-	@JsonView({View.UsuarioSimples.class, View.UsuarioFull.class})
+	@JsonView({ View.UsuarioSimples.class })
 	private long id;
 
 	@Column(name = "usr_nome", length = 50, nullable = false)
-	@JsonView({View.UsuarioSimples.class, View.UsuarioFull.class})
+	@JsonView({ View.UsuarioSimples.class, View.imagemFull.class })
 	private String nome;
 
 	@Column(name = "usr_senha", length = 250, nullable = false)
-	@JsonView({View.UsuarioSimples.class, View.UsuarioFull.class})
 	private String senha;
 
 	@Column(name = "usr_usuario", unique = true, nullable = false, length = 25)
-	@JsonView({View.UsuarioSimples.class, View.UsuarioFull.class})
+	@JsonView({ View.UsuarioSimples.class, View.imagemFull.class })
 	private String usuario;
 
 	@Column(name = "usr_email", unique = true, nullable = false, length = 50)
-	@JsonView({View.UsuarioSimples.class, View.UsuarioFull.class})
+	@JsonView({ View.UsuarioSimples.class, View.imagemFull.class })
 	private String email;
 
 	@OneToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "usr_id_papel")
-	@JsonView({View.UsuarioFull.class})
+	@JsonView({ View.UsuarioFull.class })
 	private Papel papel;
 
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "usuario")
-	@JsonView({View.UsuarioFull.class})
+	@JsonView({ View.UsuarioFull.class })
 	private Set<Imagem> imagens;
 
 	public Usuario() {
@@ -76,6 +76,8 @@ public class Usuario {
 	}
 
 	public void setSenha(String senha) {
+		senha = Criptografia.criptografar(senha);
+		System.out.println(Criptografia.criptografar("123"));
 		this.senha = senha;
 	}
 
@@ -105,10 +107,9 @@ public class Usuario {
 
 	@Override
 	public String toString() {
-		String str = String.format("Objeto Usuario - ID: %d / Nome: %s / Email: %s / usr: %s", id, nome, email, usuario);
+		String str = String.format("Objeto Usuario - ID: %d / Nome: %s / Email: %s / usr: %s", id, nome, email,
+				usuario);
 		return str;
 	}
-	
-	
 
 }

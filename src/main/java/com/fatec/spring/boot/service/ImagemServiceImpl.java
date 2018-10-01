@@ -35,6 +35,12 @@ public class ImagemServiceImpl implements ImagemService {
 	public Set<Imagem> lerImagensByUsuario(Usuario usuario) {		
 		return imagemRepo.findByUsuario(usuario);
 	}
+
+	@Override
+	public Set<Imagem> lerImagensByUsuarioEmail(String email) {
+		return imagemRepo.findByUsuarioEmail(email);
+		
+	}
 	
 	
 
