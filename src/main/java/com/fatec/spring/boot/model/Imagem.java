@@ -20,10 +20,16 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
 
 import com.fasterxml.jackson.annotation.JsonView;
 import com.fatec.spring.boot.view.View;
 
+@XmlRootElement
+@XmlAccessorType(XmlAccessType.FIELD)
 @Entity
 @Table(name = "ima_imagem")
 public class Imagem {
@@ -52,6 +58,7 @@ public class Imagem {
 
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JsonView({View.imagemFull.class})
+	//@XmlElement(name = "usuario")
 	@JoinColumn(name = "ima_id_usuario", nullable = false)
 	private Usuario usuario;
 	

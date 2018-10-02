@@ -45,7 +45,7 @@ public class ImagemControler {
 		return new ResponseEntity<Imagem>(imagem, HttpStatus.OK);
 
 	}
-
+	
 	@RequestMapping(value = "/save", method = RequestMethod.POST)
 	@JsonView(View.ImagemSimples.class)
 	@Transactional
