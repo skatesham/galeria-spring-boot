@@ -31,6 +31,7 @@ public class Imagem {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "ima_id")
+	@JsonView({View.imagemFull.class})
 	private long id;
 
 	@Column(name = "ima_nome", length = 50, nullable = false)
@@ -55,6 +56,7 @@ public class Imagem {
 	private Usuario usuario;
 	
 	@Column(name = "ima_string")
+	@JsonView({View.ImagemSimples.class})
 	private String imagemBase64;
 	
 	public Imagem() {
