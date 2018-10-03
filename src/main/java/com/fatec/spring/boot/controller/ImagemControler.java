@@ -56,7 +56,7 @@ public class ImagemControler {
 			imagem = imagemService.incluirImage(imagem);
 			Optional<Imagem> img = imagemService.lerImagemById(imagem.getId());
 			if (img.isPresent()) {
-				return new ResponseEntity<Imagem>(img.get(), HttpStatus.OK);
+				return new ResponseEntity<Imagem>(img.get(), HttpStatus.CREATED);
 			}
 
 		} catch (Exception e) {

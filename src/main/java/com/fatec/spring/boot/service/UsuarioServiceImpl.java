@@ -1,6 +1,9 @@
 package com.fatec.spring.boot.service;
 
+import java.util.Collection;
+import java.util.HashSet;
 import java.util.Optional;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,6 +24,21 @@ public class UsuarioServiceImpl implements UsuarioService {
 	@Autowired
 	PapelService papelService;
 
+	@Override
+	@Transactional
+	public Usuario incluirUsuario(Usuario usuario) {
+
+		return usuarioRepository.save(usuario);
+		
+	}
+	
+	public Set<Usuario> lerTodos(){
+		
+		Set<Usuario> set = new HashSet<>((Collection<Usuario>) usuarioRepository.findAll());
+		return set;
+		
+	}
+	
 	@Override
 	@Transactional
 	public Usuario incluirUsuario(Usuario usuario, EnumPapel papel) {

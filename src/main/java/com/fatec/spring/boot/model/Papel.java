@@ -17,6 +17,7 @@ public class Papel {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "pap_id")
+	@JsonView({View.UsuarioFull.class})
 	private long id;
 
 	@Column(name = "pap_descricao", unique = true, length = 50, nullable = false)
