@@ -18,51 +18,51 @@ import com.fatec.spring.boot.repository.UsuarioRepository;
 @Service("usuarioService")
 public class UsuarioServiceImpl implements UsuarioService {
 
-	@Autowired
-	UsuarioRepository usuarioRepository;
+    @Autowired
+    UsuarioRepository usuarioRepository;
 
-	@Autowired
-	PapelService papelService;
+    @Autowired
+    PapelService papelService;
 
-	@Override
-	@Transactional
-	public Usuario incluirUsuario(Usuario usuario) {
+    @Override
+    @Transactional
+    public Usuario incluirUsuario(Usuario usuario) {
 
-		return usuarioRepository.save(usuario);
-		
-	}
-	
-	public Set<Usuario> lerTodos(){
-		
-		Set<Usuario> set = new HashSet<>((Collection<Usuario>) usuarioRepository.findAll());
-		return set;
-		
-	}
-	
-	@Override
-	@Transactional
-	public Usuario incluirUsuario(Usuario usuario, EnumPapel papel) {
+        return usuarioRepository.save(usuario);
 
-		Optional<Papel> p = papelService.lerPapelByDescricao(papel);
+    }
 
-		if (p.isPresent()) {
-			usuario.setPapel(p.get());
-		}
-		return usuarioRepository.save(usuario);
-		
-	}
+    public Set<Usuario> lerTodos() {
 
-	@Override
-	@Transactional
-	public Optional<Usuario> lerUsuarioByNomeUsuario(String nomeUsuario) {
-		return usuarioRepository.findByUsuario(nomeUsuario);
-	}
+        Set<Usuario> set = new HashSet<>((Collection<Usuario>) usuarioRepository.findAll());
+        return set;
 
-	@Override
-	@Transactional
-	public Usuario atualizarUsuario(Usuario usuario) {
-		usuario = usuarioRepository.save(usuario);
-		return usuario;
-	}
+    }
+
+    @Override
+    @Transactional
+    public Usuario incluirUsuario(Usuario usuario, EnumPapel papel) {
+
+        Optional<Papel> p = papelService.lerPapelByDescricao(papel);
+
+        if (p.isPresent()) {
+            usuario.setPapel(p.get());
+        }
+        return usuarioRepository.save(usuario);
+
+    }
+
+    @Override
+    @Transactional
+    public Optional<Usuario> lerUsuarioByNomeUsuario(String nomeUsuario) {
+        return usuarioRepository.findByUsuario(nomeUsuario);
+    }
+
+    @Override
+    @Transactional
+    public Usuario atualizarUsuario(Usuario usuario) {
+        usuario = usuarioRepository.save(usuario);
+        return usuario;
+    }
 
 }

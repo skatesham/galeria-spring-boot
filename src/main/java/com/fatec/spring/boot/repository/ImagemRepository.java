@@ -10,7 +10,7 @@ import com.fatec.spring.boot.model.Usuario;
 
 public interface ImagemRepository extends CrudRepository<Imagem, Long> {
 
-	public Set<Imagem> findByUsuario(Usuario usuario);
+    public Set<Imagem> findByUsuario(Usuario usuario);
 
-	public Set<Imagem> findByUsuarioEmail(String email);
+    public Set<Imagem> findByUsuarioEmail(String email);
 }

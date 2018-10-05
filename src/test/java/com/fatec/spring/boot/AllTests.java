@@ -13,16 +13,16 @@ import com.fatec.spring.boot.service.UsuarioServiceImplTest;
 
 
 @RunWith(Suite.class)
-@SuiteClasses({ 
-	
-	PapelRepositoryTest.class,
-	PapelServiceImplTest.class,
-	UsuarioRepositoryTest.class,
-	UsuarioServiceImplTest.class,
-	ImagemRepositoryTest.class,
-	ImagemServiceImplTest.class
-	
-	
+@SuiteClasses({
+
+        PapelRepositoryTest.class,
+        PapelServiceImplTest.class,
+        UsuarioRepositoryTest.class,
+        UsuarioServiceImplTest.class,
+        ImagemRepositoryTest.class,
+        ImagemServiceImplTest.class
+
+
 })
 public class AllTests {
 

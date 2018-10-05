@@ -28,87 +28,87 @@ import com.fatec.spring.boot.view.View;
 @RequestMapping("/imagem")
 public class ImagemControler {
 
-	@Autowired
-	UsuarioService usuarioService;
+    @Autowired
+    UsuarioService usuarioService;
 
-	@Autowired
-	ImagemService imagemService;
+    @Autowired
+    ImagemService imagemService;
 
-	@RequestMapping(value = "/getById/{id_nome}")
-	@JsonView(View.ImagemSimples.class)
-	@Transactional
-	public ResponseEntity<Imagem> getImagemById(@PathVariable("id_nome") String id_nome) {
+    @RequestMapping(value = "/getById/{id_nome}")
+    @JsonView(View.ImagemSimples.class)
+    @Transactional
+    public ResponseEntity<Imagem> getImagemById(@PathVariable("id_nome") String id_nome) {
 
-		Long id = Long.parseLong(id_nome);
-		Imagem imagem = imagemService.lerImagemById(id).get();
+        Long id = Long.parseLong(id_nome);
+        Imagem imagem = imagemService.lerImagemById(id).get();
 
-		return new ResponseEntity<Imagem>(imagem, HttpStatus.OK);
+        return new ResponseEntity<Imagem>(imagem, HttpStatus.OK);
 
-	}
-	
-	@RequestMapping(value = "/save", method = RequestMethod.POST)
-	@JsonView(View.ImagemSimples.class)
-	@Transactional
-	public ResponseEntity<Imagem> create(@RequestBody Imagem imagem, HttpServletRequest request,
-			HttpServletResponse response) {
+    }
 
-		try {
-			imagem = imagemService.incluirImage(imagem);
-			Optional<Imagem> img = imagemService.lerImagemById(imagem.getId());
-			if (img.isPresent()) {
-				return new ResponseEntity<Imagem>(img.get(), HttpStatus.CREATED);
-			}
+    @RequestMapping(value = "/save", method = RequestMethod.POST)
+    @JsonView(View.ImagemSimples.class)
+    @Transactional
+    public ResponseEntity<Imagem> create(@RequestBody Imagem imagem, HttpServletRequest request,
+                                         HttpServletResponse response) {
 
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return new ResponseEntity<Imagem>(imagem, HttpStatus.BAD_REQUEST);
-	}
+        try {
+            imagem = imagemService.incluirImage(imagem);
+            Optional<Imagem> img = imagemService.lerImagemById(imagem.getId());
+            if (img.isPresent()) {
+                return new ResponseEntity<Imagem>(img.get(), HttpStatus.CREATED);
+            }
 
-	@RequestMapping(value = "/getByUsuario/{nome}")
-	@JsonView(View.ImagemSimples.class)
-	@Transactional
-	public ResponseEntity<Collection<Imagem>> getImagemByUserName(@PathVariable("nome") String nome) {
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return new ResponseEntity<Imagem>(imagem, HttpStatus.BAD_REQUEST);
+    }
 
-		Usuario usuario = usuarioService.lerUsuarioByNomeUsuario(nome).get();
-		Set<Imagem> imagens = imagemService.lerImagensByUsuario(usuario);
+    @RequestMapping(value = "/getByUsuario/{nome}")
+    @JsonView(View.ImagemSimples.class)
+    @Transactional
+    public ResponseEntity<Collection<Imagem>> getImagemByUserName(@PathVariable("nome") String nome) {
 
-		return new ResponseEntity<Collection<Imagem>>(imagens, HttpStatus.OK);
+        Usuario usuario = usuarioService.lerUsuarioByNomeUsuario(nome).get();
+        Set<Imagem> imagens = imagemService.lerImagensByUsuario(usuario);
 
-	}
+        return new ResponseEntity<Collection<Imagem>>(imagens, HttpStatus.OK);
 
-	@RequestMapping(value = "/getFullByUsuario/{nome}")
-	@JsonView(View.imagemFull.class)
-	@Transactional
-	public ResponseEntity<Collection<Imagem>> getImagemFullByUserName(@PathVariable("nome") String nome) {
+    }
 
-		Usuario usuario = usuarioService.lerUsuarioByNomeUsuario(nome).get();
-		Set<Imagem> imagens = imagemService.lerImagensByUsuario(usuario);
+    @RequestMapping(value = "/getFullByUsuario/{nome}")
+    @JsonView(View.imagemFull.class)
+    @Transactional
+    public ResponseEntity<Collection<Imagem>> getImagemFullByUserName(@PathVariable("nome") String nome) {
 
-		return new ResponseEntity<Collection<Imagem>>(imagens, HttpStatus.OK);
+        Usuario usuario = usuarioService.lerUsuarioByNomeUsuario(nome).get();
+        Set<Imagem> imagens = imagemService.lerImagensByUsuario(usuario);
 
-	}
+        return new ResponseEntity<Collection<Imagem>>(imagens, HttpStatus.OK);
 
-	@RequestMapping(value = "/getByEmail/{email}")
-	@JsonView(View.ImagemSimples.class)
-	@Transactional
-	public ResponseEntity<Collection<Imagem>> getImagemByUserEmail(@PathVariable("email") String email) {
+    }
 
-		Set<Imagem> imagens = imagemService.lerImagensByUsuarioEmail(email);
+    @RequestMapping(value = "/getByEmail/{email}")
+    @JsonView(View.ImagemSimples.class)
+    @Transactional
+    public ResponseEntity<Collection<Imagem>> getImagemByUserEmail(@PathVariable("email") String email) {
 
-		return new ResponseEntity<Collection<Imagem>>(imagens, HttpStatus.OK);
+        Set<Imagem> imagens = imagemService.lerImagensByUsuarioEmail(email);
 
-	}
+        return new ResponseEntity<Collection<Imagem>>(imagens, HttpStatus.OK);
 
-	@RequestMapping(value = "/getFullByEmail/{email}")
-	@JsonView(View.imagemFull.class)
-	@Transactional
-	public ResponseEntity<Collection<Imagem>> getImagemFullByEmail(@PathVariable("email") String email) {
+    }
 
-		Set<Imagem> imagens = imagemService.lerImagensByUsuarioEmail(email);
+    @RequestMapping(value = "/getFullByEmail/{email}")
+    @JsonView(View.imagemFull.class)
+    @Transactional
+    public ResponseEntity<Collection<Imagem>> getImagemFullByEmail(@PathVariable("email") String email) {
 
-		return new ResponseEntity<Collection<Imagem>>(imagens, HttpStatus.OK);
+        Set<Imagem> imagens = imagemService.lerImagensByUsuarioEmail(email);
 
-	}
+        return new ResponseEntity<Collection<Imagem>>(imagens, HttpStatus.OK);
+
+    }
 
 }

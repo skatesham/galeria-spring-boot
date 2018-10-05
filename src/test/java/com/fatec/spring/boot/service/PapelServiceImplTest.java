@@ -18,35 +18,35 @@ import com.fatec.spring.boot.model.Papel;
 @Transactional
 public class PapelServiceImplTest {
 
-	@Autowired
-	PapelService papelService;
+    @Autowired
+    PapelService papelService;
 
-	@Test
-	public void incluirPapelTest() {
-		Papel expected = new Papel(EnumPapel.TESTE);
-		Papel actual = papelService.incluirPapel(expected);
-		assertNotNull(actual);
-		assertEquals(expected, actual);
+    @Test
+    public void incluirPapelTest() {
+        Papel expected = new Papel(EnumPapel.TESTE);
+        Papel actual = papelService.incluirPapel(expected);
+        assertNotNull(actual);
+        assertEquals(expected, actual);
 
-	}
+    }
 
-	@Test
-	public void lerPapelByIdTest() {
-		Papel expected = new Papel(EnumPapel.TESTE);
-		expected = papelService.incluirPapel(expected);
-		Papel actual = papelService.lerPapelById(expected.getId()).get();
-		assertNotNull(actual);
-		assertEquals(expected, actual);
+    @Test
+    public void lerPapelByIdTest() {
+        Papel expected = new Papel(EnumPapel.TESTE);
+        expected = papelService.incluirPapel(expected);
+        Papel actual = papelService.lerPapelById(expected.getId()).get();
+        assertNotNull(actual);
+        assertEquals(expected, actual);
 
-	}
+    }
 
-	@Test
-	public void lerPapelByDescricaoTest() {
-		Papel expected = new Papel(EnumPapel.TESTE);
-		expected = papelService.incluirPapel(expected);
-		Papel actual = papelService.lerPapelByDescricao(EnumPapel.TESTE).get();
-		assertEquals(expected, actual);
-		assertNotNull(actual);
-	}
+    @Test
+    public void lerPapelByDescricaoTest() {
+        Papel expected = new Papel(EnumPapel.TESTE);
+        expected = papelService.incluirPapel(expected);
+        Papel actual = papelService.lerPapelByDescricao(EnumPapel.TESTE).get();
+        assertEquals(expected, actual);
+        assertNotNull(actual);
+    }
 
 }

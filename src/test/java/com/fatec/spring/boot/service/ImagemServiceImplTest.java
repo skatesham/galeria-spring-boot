@@ -25,129 +25,129 @@ import com.fatec.spring.boot.model.Usuario;
 @Transactional
 public class ImagemServiceImplTest {
 
-	private static final String nomeU = "Usuario X";
-	private static final String emailU = "user@user.com";
-	private static final String userU = "user";
-	private static final String senhaU = "123";
+    private static final String nomeU = "Usuario X";
+    private static final String emailU = "user@user.com";
+    private static final String userU = "user";
+    private static final String senhaU = "123";
 
-	private static final String nomeI1 = "Imagem 1";
-	private static final String nomeI2 = "Imagem 2";
-	private static final String tipoI1 = ".jpg";
-	private static final String tamanhoI1 = "10x10";
-	private static final String path = "img/img.png";
+    private static final String nomeI1 = "Imagem 1";
+    private static final String nomeI2 = "Imagem 2";
+    private static final String tipoI1 = ".jpg";
+    private static final String tamanhoI1 = "10x10";
+    private static final String path = "img/img.png";
 
-	@Autowired
-	ImagemService imagemService;
-	
-	@Autowired
-	PapelService papelService;
+    @Autowired
+    ImagemService imagemService;
 
-	@Autowired
-	UsuarioService usuarioService;
+    @Autowired
+    PapelService papelService;
 
-	@Test
-	public void incluirImageTest() {
-		Usuario user = new Usuario();
-		user.setNome(nomeU);
-		user.setEmail(emailU);
-		;
-		user.setSenha(senhaU);
-		user.setUsuario(userU);
-		
-		Papel papel = new Papel(EnumPapel.TESTE);
-		papel = papelService.incluirPapel(papel);
-		EnumPapel papelEnum = EnumPapel.TESTE;
-		
-		user = usuarioService.incluirUsuario(user, papelEnum);
+    @Autowired
+    UsuarioService usuarioService;
 
-		Imagem expected = new Imagem(path);
-		expected.setNome(nomeI1);
-		expected.setTipo(tipoI1);
-		expected.setTamanho(tamanhoI1);
-		expected.setUsuario(user);
+    @Test
+    public void incluirImageTest() {
+        Usuario user = new Usuario();
+        user.setNome(nomeU);
+        user.setEmail(emailU);
+        ;
+        user.setSenha(senhaU);
+        user.setUsuario(userU);
 
-		Imagem actual = imagemService.incluirImage(expected);
+        Papel papel = new Papel(EnumPapel.TESTE);
+        papel = papelService.incluirPapel(papel);
+        EnumPapel papelEnum = EnumPapel.TESTE;
 
-		assertEquals(expected, actual);
+        user = usuarioService.incluirUsuario(user, papelEnum);
 
-	}
+        Imagem expected = new Imagem(path);
+        expected.setNome(nomeI1);
+        expected.setTipo(tipoI1);
+        expected.setTamanho(tamanhoI1);
+        expected.setUsuario(user);
 
-	@Test
-	public void lerImagemByIdTest() {
-		Usuario user = new Usuario();
-		user.setNome(nomeU);
-		user.setEmail(emailU);
-		user.setSenha(senhaU);
-		user.setUsuario(userU);
-		
-		Papel papel = new Papel(EnumPapel.TESTE);
-		papel = papelService.incluirPapel(papel);
-		EnumPapel papelEnum = EnumPapel.TESTE;
+        Imagem actual = imagemService.incluirImage(expected);
 
-		
-		user = usuarioService.incluirUsuario(user, papelEnum);
+        assertEquals(expected, actual);
 
-		Imagem expected = new Imagem(path);
-		expected.setNome(nomeI1);
-		expected.setTipo(tipoI1);
-		expected.setTamanho(tamanhoI1);
-		expected.setUsuario(user);
+    }
 
-		expected = imagemService.incluirImage(expected);
+    @Test
+    public void lerImagemByIdTest() {
+        Usuario user = new Usuario();
+        user.setNome(nomeU);
+        user.setEmail(emailU);
+        user.setSenha(senhaU);
+        user.setUsuario(userU);
 
-		Imagem actual = imagemService.lerImagemById(expected.getId()).get();
+        Papel papel = new Papel(EnumPapel.TESTE);
+        papel = papelService.incluirPapel(papel);
+        EnumPapel papelEnum = EnumPapel.TESTE;
 
-		assertEquals(expected, actual);
 
-	}
+        user = usuarioService.incluirUsuario(user, papelEnum);
 
-	@Test
-	public void lerImagensByUsuarioTest() {
-		Usuario user = new Usuario();
-		user.setNome(nomeU);
-		user.setEmail(emailU);
-		;
-		user.setSenha(senhaU);
-		user.setUsuario(userU);
-		
-		Papel papel = new Papel(EnumPapel.TESTE);
-		papel = papelService.incluirPapel(papel);
-		EnumPapel papelEnum = EnumPapel.TESTE;
-		
-		user = usuarioService.incluirUsuario(user, papelEnum);
+        Imagem expected = new Imagem(path);
+        expected.setNome(nomeI1);
+        expected.setTipo(tipoI1);
+        expected.setTamanho(tamanhoI1);
+        expected.setUsuario(user);
 
-		Set<Imagem> expected = new HashSet<Imagem>();
+        expected = imagemService.incluirImage(expected);
 
-		Imagem img1 = new Imagem(path);
-		img1.setNome(nomeI1);
-		img1.setTipo(tipoI1);
-		img1.setTamanho(tamanhoI1);
-		img1.setUsuario(user);
-		expected.add(img1);
+        Imagem actual = imagemService.lerImagemById(expected.getId()).get();
 
-		Imagem img2 = new Imagem(path);
-		img2.setNome(nomeI2);
-		img2.setTipo(tipoI1);
-		img2.setTamanho(tamanhoI1);
-		img2.setUsuario(user);
-		expected.add(img2);
+        assertEquals(expected, actual);
 
-		img1 = imagemService.incluirImage(img1);
-		img2 = imagemService.incluirImage(img2);
+    }
 
-		Set<Imagem> actual = imagemService.lerImagensByUsuario(user);
+    @Test
+    public void lerImagensByUsuarioTest() {
+        Usuario user = new Usuario();
+        user.setNome(nomeU);
+        user.setEmail(emailU);
+        ;
+        user.setSenha(senhaU);
+        user.setUsuario(userU);
 
-		Iterator<Imagem> actualIterator = actual.iterator();
+        Papel papel = new Papel(EnumPapel.TESTE);
+        papel = papelService.incluirPapel(papel);
+        EnumPapel papelEnum = EnumPapel.TESTE;
 
-		assertEquals(2, actual.size());
+        user = usuarioService.incluirUsuario(user, papelEnum);
 
-		assertFalse(expected.isEmpty());
+        Set<Imagem> expected = new HashSet<Imagem>();
 
-		assertEquals(img1, actualIterator.next());
+        Imagem img1 = new Imagem(path);
+        img1.setNome(nomeI1);
+        img1.setTipo(tipoI1);
+        img1.setTamanho(tamanhoI1);
+        img1.setUsuario(user);
+        expected.add(img1);
 
-		assertEquals(img2, actualIterator.next());
+        Imagem img2 = new Imagem(path);
+        img2.setNome(nomeI2);
+        img2.setTipo(tipoI1);
+        img2.setTamanho(tamanhoI1);
+        img2.setUsuario(user);
+        expected.add(img2);
 
-		assertEquals(expected, actual);
-	}
+        img1 = imagemService.incluirImage(img1);
+        img2 = imagemService.incluirImage(img2);
+
+        Set<Imagem> actual = imagemService.lerImagensByUsuario(user);
+
+        Iterator<Imagem> actualIterator = actual.iterator();
+
+        assertEquals(2, actual.size());
+
+        assertFalse(expected.isEmpty());
+
+        assertEquals(img1, actualIterator.next());
+
+        assertEquals(img2, actualIterator.next());
+
+        assertEquals(expected, actual);
+    }
 
 }

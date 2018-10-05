@@ -22,60 +22,60 @@ import com.fatec.spring.boot.model.Usuario;
 import com.fatec.spring.boot.service.UsuarioService;
 import com.fatec.spring.boot.view.View;
 
-@CrossOrigin(origins = "http://localhost:4200")
+// @CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @RequestMapping("/usuario")
 public class UsuarioController {
 
-	@Autowired
-	UsuarioService usuarioService;
+    @Autowired
+    UsuarioService usuarioService;
 
-	@RequestMapping(value = "/")
-	public String teste() {
+    @RequestMapping(value = "/")
+    public String teste() {
 
-		return "BEM VINDO A API GALERIA DE IMAGENS";
-	}
-	
-	@RequestMapping(value = "/getAll", method = RequestMethod.GET)
-	@JsonView(View.UsuarioFull.class)
-	@Transactional
-	public ResponseEntity<Collection<Usuario>> getAll( HttpServletRequest request, HttpServletResponse response) {
+        return "BEM VINDO A API GALERIA DE IMAGENS";
+    }
 
-		Set<Usuario> usuarios = usuarioService.lerTodos();
-		return new ResponseEntity<Collection<Usuario>>(usuarios, HttpStatus.OK);
-	}
-	
-	@RequestMapping(value = "/get/{nome}", method = RequestMethod.GET)
-	@JsonView(View.UsuarioSimples.class)
-	@Transactional
-	public ResponseEntity<Usuario> getUsuarioByUserName(@PathVariable("nome") String nome) {
+    @RequestMapping(value = "/getAll", method = RequestMethod.GET)
+    @JsonView(View.UsuarioFull.class)
+    @Transactional
+    public ResponseEntity<Collection<Usuario>> getAll(HttpServletRequest request, HttpServletResponse response) {
 
-		Usuario usuario = usuarioService.lerUsuarioByNomeUsuario(nome).get();
+        Set<Usuario> usuarios = usuarioService.lerTodos();
+        return new ResponseEntity<Collection<Usuario>>(usuarios, HttpStatus.OK);
+    }
 
-		return new ResponseEntity<Usuario>(usuario, HttpStatus.OK);
-	}
+    @RequestMapping(value = "/get/{nome}", method = RequestMethod.GET)
+    @JsonView(View.UsuarioSimples.class)
+    @Transactional
+    public ResponseEntity<Usuario> getUsuarioByUserName(@PathVariable("nome") String nome) {
 
-	@RequestMapping(value = "/getFull/{nome}", method = RequestMethod.GET)
-	@JsonView(View.UsuarioFull.class)
-	@Transactional
-	public ResponseEntity<Usuario> getUsuarioByUserNameCompleto(@PathVariable("nome") String nome) {
+        Usuario usuario = usuarioService.lerUsuarioByNomeUsuario(nome).get();
 
-		Usuario usuario = usuarioService.lerUsuarioByNomeUsuario(nome).get();
+        return new ResponseEntity<Usuario>(usuario, HttpStatus.OK);
+    }
 
-		return new ResponseEntity<Usuario>(usuario, HttpStatus.OK);
-	}
+    @RequestMapping(value = "/getFull/{nome}", method = RequestMethod.GET)
+    @JsonView(View.UsuarioFull.class)
+    @Transactional
+    public ResponseEntity<Usuario> getUsuarioByUserNameCompleto(@PathVariable("nome") String nome) {
 
-	@RequestMapping(value = "/save", method = RequestMethod.POST)
-	@JsonView(View.UsuarioFull.class)
-	public ResponseEntity<Usuario> save(@RequestBody Usuario usuario, HttpServletRequest request, HttpServletResponse response) {
-		try {
-		usuario = usuarioService.incluirUsuario(usuario);
-		response.addHeader("Location", request.getServerName() + ":" + request.getServerPort() + request.getContextPath() + "/usuario/getById?id=" + usuario.getId());
-		return new ResponseEntity<Usuario>(usuario, HttpStatus.CREATED);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return new ResponseEntity<Usuario>(usuario, HttpStatus.BAD_REQUEST);
-	}
+        Usuario usuario = usuarioService.lerUsuarioByNomeUsuario(nome).get();
+
+        return new ResponseEntity<Usuario>(usuario, HttpStatus.OK);
+    }
+
+    @RequestMapping(value = "/save", method = RequestMethod.POST)
+    @JsonView(View.UsuarioFull.class)
+    public ResponseEntity<Usuario> save(@RequestBody Usuario usuario, HttpServletRequest request, HttpServletResponse response) {
+        try {
+            usuario = usuarioService.incluirUsuario(usuario);
+            response.addHeader("Location", request.getServerName() + ":" + request.getServerPort() + request.getContextPath() + "/usuario/getById?id=" + usuario.getId());
+            return new ResponseEntity<Usuario>(usuario, HttpStatus.CREATED);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return new ResponseEntity<Usuario>(usuario, HttpStatus.BAD_REQUEST);
+    }
 
 }

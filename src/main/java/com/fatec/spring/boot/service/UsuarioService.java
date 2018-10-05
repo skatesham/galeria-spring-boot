@@ -7,17 +7,16 @@ import com.fatec.spring.boot.model.EnumPapel;
 import com.fatec.spring.boot.model.Usuario;
 
 
-
 public interface UsuarioService {
 
-	public Usuario incluirUsuario(Usuario usuario);
-	
-	public Set<Usuario> lerTodos();
-	
-	public Usuario incluirUsuario(Usuario usuario, EnumPapel papel);
+    public Usuario incluirUsuario(Usuario usuario);
 
-	public Optional<Usuario> lerUsuarioByNomeUsuario(String nomeUsuario);
+    public Set<Usuario> lerTodos();
 
-	public Usuario atualizarUsuario(Usuario usuario);
+    public Usuario incluirUsuario(Usuario usuario, EnumPapel papel);
+
+    public Optional<Usuario> lerUsuarioByNomeUsuario(String nomeUsuario);
+
+    public Usuario atualizarUsuario(Usuario usuario);
 
 }
