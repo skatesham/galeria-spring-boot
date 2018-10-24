@@ -36,6 +36,12 @@ public class UsuarioController {
         return "BEM VINDO A API GALERIA DE IMAGENS";
     }
 
+    @RequestMapping(value = "/error")
+    public String error() {
+
+        return "ERRO FATAL! Problema ao iniciar A API GALERIA DE IMAGENS";
+    }
+
     @RequestMapping(value = "/getAll", method = RequestMethod.GET)
     @JsonView(View.UsuarioFull.class)
     @Transactional
