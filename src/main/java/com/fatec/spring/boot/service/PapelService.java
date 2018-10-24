@@ -1,9 +1,9 @@
 package com.fatec.spring.boot.service;
 
-import java.util.Optional;
-
 import com.fatec.spring.boot.model.EnumPapel;
 import com.fatec.spring.boot.model.Papel;
+
+import java.util.Optional;
 
 
 public interface PapelService {

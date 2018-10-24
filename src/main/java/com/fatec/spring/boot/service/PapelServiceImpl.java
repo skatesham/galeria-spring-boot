@@ -1,13 +1,12 @@
 package com.fatec.spring.boot.service;
 
-import java.util.Optional;
-
+import com.fatec.spring.boot.model.EnumPapel;
+import com.fatec.spring.boot.model.Papel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.fatec.spring.boot.model.EnumPapel;
-import com.fatec.spring.boot.model.Papel;
+import java.util.Optional;
 
 
 @Service("papelService")

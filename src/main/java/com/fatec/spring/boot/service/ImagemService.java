@@ -1,10 +1,10 @@
 package com.fatec.spring.boot.service;
 
-import java.util.Optional;
-import java.util.Set;
-
 import com.fatec.spring.boot.model.Imagem;
 import com.fatec.spring.boot.model.Usuario;
+
+import java.util.Optional;
+import java.util.Set;
 
 
 public interface ImagemService {

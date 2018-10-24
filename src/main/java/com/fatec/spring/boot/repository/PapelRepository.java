@@ -1,10 +1,9 @@
 package com.fatec.spring.boot.repository;
 
-import java.util.Optional;
-
+import com.fatec.spring.boot.model.Papel;
 import org.springframework.data.repository.CrudRepository;
 
-import com.fatec.spring.boot.model.Papel;
+import java.util.Optional;
 
 
 public interface PapelRepository extends CrudRepository<Papel, Long> {

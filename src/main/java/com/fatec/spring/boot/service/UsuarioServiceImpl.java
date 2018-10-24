@@ -1,18 +1,17 @@
 package com.fatec.spring.boot.service;
 
-import java.util.Collection;
-import java.util.HashSet;
-import java.util.Optional;
-import java.util.Set;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
-
 import com.fatec.spring.boot.model.EnumPapel;
 import com.fatec.spring.boot.model.Papel;
 import com.fatec.spring.boot.model.Usuario;
 import com.fatec.spring.boot.repository.UsuarioRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.Optional;
+import java.util.Set;
 
 
 @Service("usuarioService")

@@ -1,11 +1,10 @@
 package com.fatec.spring.boot.repository;
 
-import java.util.Optional;
-
+import com.fatec.spring.boot.model.Usuario;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 
-import com.fatec.spring.boot.model.Usuario;
+import java.util.Optional;
 
 
 public interface UsuarioRepository extends CrudRepository<Usuario, Long> {
