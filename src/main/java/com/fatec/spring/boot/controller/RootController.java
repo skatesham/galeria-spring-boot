@@ -12,6 +12,7 @@ public class RootController {
     public String teste() {
 
         return "BEM VINDO A API GALERIA DE IMAGENS";
+
     }
 
 
