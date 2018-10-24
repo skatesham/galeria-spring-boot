@@ -1,22 +1,28 @@
 package com.fatec.spring.boot.controller;
 
+import java.util.Collection;
+import java.util.Optional;
+import java.util.Set;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
+
 import com.fasterxml.jackson.annotation.JsonView;
 import com.fatec.spring.boot.model.Imagem;
 import com.fatec.spring.boot.model.Usuario;
 import com.fatec.spring.boot.service.ImagemService;
 import com.fatec.spring.boot.service.UsuarioService;
 import com.fatec.spring.boot.view.View;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.bind.annotation.*;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import java.util.Collection;
-import java.util.Optional;
-import java.util.Set;
 
 @RestController
 @RequestMapping("/imagem")
@@ -88,7 +94,7 @@ public class ImagemControler {
     @Transactional
     public ResponseEntity<Collection<Imagem>> getImagemByUserEmail(@PathVariable("email") String email) {
 
-        Set<Imagem> imagens = imagemService.lerImagensByUsuarioEmail(email);
+        Collection<Imagem> imagens = imagemService.lerImagensByUsuarioEmail(email);
 
         return new ResponseEntity<Collection<Imagem>>(imagens, HttpStatus.OK);
 

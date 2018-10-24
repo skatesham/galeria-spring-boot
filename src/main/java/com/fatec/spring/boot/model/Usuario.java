@@ -5,6 +5,9 @@ import com.fatec.spring.boot.repository.Criptografia;
 import com.fatec.spring.boot.view.View;
 
 import javax.persistence.*;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlRootElement;
 import java.util.Set;
 
 @Entity

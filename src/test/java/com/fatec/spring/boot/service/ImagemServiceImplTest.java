@@ -149,4 +149,54 @@ public class ImagemServiceImplTest {
         assertEquals(expected, actual);
     }
 
+    @Test
+    public void lerImagensByUsuarioEmailTest() {
+        Usuario user = new Usuario();
+        user.setNome(nomeU);
+        user.setEmail(emailU);
+        ;
+        user.setSenha(senhaU);
+        user.setUsuario(userU);
+
+        Papel papel = new Papel(EnumPapel.TESTE);
+        papel = papelService.incluirPapel(papel);
+        EnumPapel papelEnum = EnumPapel.TESTE;
+
+        user = usuarioService.incluirUsuario(user, papelEnum);
+
+        Set<Imagem> expected = new HashSet<Imagem>();
+
+        Imagem img1 = new Imagem(path);
+        img1.setNome(nomeI1);
+        img1.setTipo(tipoI1);
+        img1.setTamanho(tamanhoI1);
+        img1.setUsuario(user);
+        expected.add(img1);
+
+        Imagem img2 = new Imagem(path);
+        img2.setNome(nomeI2);
+        img2.setTipo(tipoI1);
+        img2.setTamanho(tamanhoI1);
+        img2.setUsuario(user);
+        expected.add(img2);
+
+        img1 = imagemService.incluirImage(img1);
+        img2 = imagemService.incluirImage(img2);
+
+        Set<Imagem> actual = imagemService.lerImagensByUsuarioEmail(user.getEmail());
+
+        Iterator<Imagem> actualIterator = actual.iterator();
+
+        assertEquals(2, actual.size());
+
+        assertFalse(expected.isEmpty());
+
+        assertEquals(img1, actualIterator.next());
+
+        assertEquals(img2, actualIterator.next());
+
+        assertEquals(expected, actual);
+    }
+
+
 }

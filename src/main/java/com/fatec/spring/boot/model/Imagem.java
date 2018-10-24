@@ -17,8 +17,8 @@ import java.util.Base64;
  * @author Sham
  */
 
-@XmlRootElement
-@XmlAccessorType(XmlAccessType.FIELD)
+//@XmlRootElement
+//@XmlAccessorType(XmlAccessType.FIELD)
 @Entity
 @Table(name = "ima_imagem")
 public class Imagem {
@@ -41,7 +41,7 @@ public class Imagem {
     @JsonView({View.UsuarioFull.class, View.ImagemSimples.class})
     private String tipo;
 
-    @Column(name = "ima_imagem", nullable = false)
+    @Column(name = "ima_imagem")
     @JsonView({View.imagemFull.class})
     private byte[] imagemBlob;
 
@@ -135,9 +135,11 @@ public class Imagem {
     }
 
     public String getImagemBase64() {
+        /*
         if (this.imagemBase64 == null) {
             this.imagemBase64 = Base64.getEncoder().encodeToString(this.imagemBlob);
         }
+        */
         return this.imagemBase64;
 
     }
