@@ -5,13 +5,9 @@ import com.fatec.spring.boot.view.View;
 
 import javax.imageio.ImageIO;
 import javax.persistence.*;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlRootElement;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
-import java.util.Base64;
 
 /**
  * @author Sham

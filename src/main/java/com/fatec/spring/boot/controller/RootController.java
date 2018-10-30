@@ -2,7 +2,6 @@ package com.fatec.spring.boot.controller;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fatec.spring.boot.model.Usuario;
-import com.fatec.spring.boot.repository.Criptografia;
 import com.fatec.spring.boot.security.JwtUtils;
 import com.fatec.spring.boot.security.Login;
 import org.springframework.beans.factory.annotation.Autowired;

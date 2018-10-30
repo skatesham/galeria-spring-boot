@@ -24,14 +24,14 @@ public class JwtAuthenticationFilter extends GenericFilterBean {
         try {
             HttpServletRequest request = (HttpServletRequest) servletRequest;
             String autorization = request.getHeader(HEADER);
-            if(autorization != null){
-                Usuario usuario = JwtUtils.parseToken(autorization.replace("Bearer ",""));
+            if (autorization != null) {
+                Usuario usuario = JwtUtils.parseToken(autorization.replace("Bearer ", ""));
                 Authentication credentials = new UsernamePasswordAuthenticationToken(usuario.getUsuario(), usuario.getSenha(), usuario.getAuthorities());
                 SecurityContextHolder.getContext().setAuthentication(credentials);
             }
             filterChain.doFilter(request, servletResponse);
 
-        } catch (Throwable t){
+        } catch (Throwable t) {
             HttpServletResponse response = (HttpServletResponse) servletResponse;
             response.sendError(HttpServletResponse.SC_UNAUTHORIZED, t.getMessage());
         }

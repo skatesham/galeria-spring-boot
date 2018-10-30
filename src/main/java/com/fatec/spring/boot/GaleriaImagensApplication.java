@@ -18,6 +18,5 @@ public class GaleriaImagensApplication {
         System.out.println("Galeria de Imagens Ativa");
 
 
-
     }
 }

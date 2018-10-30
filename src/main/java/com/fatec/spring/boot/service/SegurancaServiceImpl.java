@@ -16,14 +16,14 @@ public class SegurancaServiceImpl implements UserDetailsService {
     @Autowired
     private UsuarioRepository usuarioRepository;
 
-    public void setUsuarioRepository(UsuarioRepository usuarioRepository){
+    public void setUsuarioRepository(UsuarioRepository usuarioRepository) {
         this.usuarioRepository = usuarioRepository;
     }
 
     @Override
     public UserDetails loadUserByUsername(String nomeUsuario) throws UsernameNotFoundException {
         Optional<Usuario> usuario = usuarioRepository.findByUsuario(nomeUsuario);
-        if(!usuario.isPresent()){
+        if (!usuario.isPresent()) {
             throw new UsernameNotFoundException(nomeUsuario);
         }
         return usuario.get();
