@@ -1,7 +1,5 @@
 package com.fatec.spring.boot.security;
 
-import com.fatec.spring.boot.repository.Criptografia;
-
 public class Login {
 
     private String username;
@@ -19,7 +17,7 @@ public class Login {
     }
 
     public String getPassword() {
-        return Criptografia.criptografar(password);
+        return password;
     }
 
     public void setPassword(String password) {

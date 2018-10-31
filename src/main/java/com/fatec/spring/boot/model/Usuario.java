@@ -2,7 +2,6 @@ package com.fatec.spring.boot.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonView;
-import com.fatec.spring.boot.repository.Criptografia;
 import com.fatec.spring.boot.view.View;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -72,8 +71,6 @@ public class Usuario implements UserDetails {
     }
 
     public void setSenha(String senha) {
-        senha = Criptografia.criptografar(senha);
-        //System.out.println(Criptografia.criptografar("123"));
         this.senha = senha;
     }
 
