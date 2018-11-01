@@ -37,7 +37,7 @@ public class Usuario implements UserDetails {
     @JsonView({View.UsuarioSimples.class, View.imagemFull.class})
     private String email;
 
-    @OneToOne(fetch = FetchType.LAZY)
+    @OneToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "usr_id_papel")
     @JsonView({View.UsuarioFull.class})
     private Papel papel;

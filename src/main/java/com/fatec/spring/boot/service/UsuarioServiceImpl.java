@@ -17,7 +17,7 @@ import java.util.HashSet;
 import java.util.Optional;
 import java.util.Set;
 
-//@PreAuthorize("isAuthenticated()")
+@PreAuthorize("isAuthenticated()")
 @Service("usuarioService")
 public class UsuarioServiceImpl implements UsuarioService {
 
@@ -30,19 +30,16 @@ public class UsuarioServiceImpl implements UsuarioService {
     @Override
     @Transactional
     public Usuario incluirUsuario(Usuario usuario) {
-
         usuario.setSenha(md5(usuario.getSenha()));
         return usuarioRepository.save(usuario);
 
     }
 
-
+    @Override
     @Transactional
     public Set<Usuario> lerTodos() {
-
         Set<Usuario> set = new HashSet<>((Collection<Usuario>) usuarioRepository.findAll());
         return set;
-
     }
 
     @Override

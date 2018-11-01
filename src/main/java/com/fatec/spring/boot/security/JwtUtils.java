@@ -13,14 +13,14 @@ import java.util.Date;
 
 public class JwtUtils {
 
-    private static final String KEY = "123";
+    private static final String KEY = "12345678";
 
     public static String generateToken(Usuario usuario) throws JsonProcessingException {
         ObjectMapper mapper = new ObjectMapper();  // Write Json from an object
         usuario.setSenha(null);     // remove password from object
         String usuarioJson = mapper.writeValueAsString(usuario); // create json from user
         Date agora = new Date(); // set time from now
-        Long hora = 1000L * 60L * 60L; //configure one hour in milissegundos
+        long hora = 1000L * 60L * 60L; //configure one hour in milissegundos
         return Jwts.builder().claim("userDetails", usuarioJson)
                 .setIssuer("com.fatec.spring.boot")
                 .setSubject(usuario.getNome())
@@ -35,7 +35,7 @@ public class JwtUtils {
                 .setSigningKey(KEY)
                 .parseClaimsJws(token)
                 .getBody()
-                .get("userDetails", String.class);
+                .get("UserDetails", String.class);
         return mapper.readValue(credentialsJson, Usuario.class);
     }
 
