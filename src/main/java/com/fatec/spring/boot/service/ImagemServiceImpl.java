@@ -4,13 +4,14 @@ import com.fatec.spring.boot.model.Imagem;
 import com.fatec.spring.boot.model.Usuario;
 import com.fatec.spring.boot.repository.ImagemRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Optional;
 import java.util.Set;
 
-
+@PreAuthorize("isAuthenticated()")
 @Service("imagemService")
 public class ImagemServiceImpl implements ImagemService {
 
