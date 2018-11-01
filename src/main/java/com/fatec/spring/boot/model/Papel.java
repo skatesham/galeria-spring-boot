@@ -2,12 +2,13 @@ package com.fatec.spring.boot.model;
 
 import com.fasterxml.jackson.annotation.JsonView;
 import com.fatec.spring.boot.view.View;
+import org.springframework.security.core.GrantedAuthority;
 
 import javax.persistence.*;
 
 @Entity
 @Table(name = "pap_papel")
-public class Papel {
+public class Papel implements GrantedAuthority {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -46,6 +47,15 @@ public class Papel {
     public String toString() {
         String str = String.format("Objeto Papel - ID: %d / Desc: %s", id, descricao);
         return str;
+    }
+
+    @Override
+    public String getAuthority() {
+        return this.descricao;
+    }
+
+    public void setAuthority(String authority) {
+        this.descricao = authority;
     }
 
 
