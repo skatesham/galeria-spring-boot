@@ -1,0 +1,422 @@
+{
+	"info": {
+		"_postman_id": "68c91eea-108c-43a9-82d4-0c6e59cf9f9b",
+		"name": "Galeria-Imagens",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Usuario",
+			"item": [
+				{
+					"name": "save",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "\t{\n        \"nome\": \"Claudio Lima\",\n        \"usuario\": \"claudio\",\n        \"email\": \"claudio@fatec.com\",\n        \"senha\": \"123\",\n        \"papel\": {\n            \"id\": 2,\n            \"descricao\": \"Usuario Comum\"\n        },\n        \"imagens\": []\n    }"
+						},
+						"url": {
+							"raw": "http://localhost:8888/GaleriaImagens/usuario/save",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8888",
+							"path": [
+								"GaleriaImagens",
+								"usuario",
+								"save"
+							]
+						},
+						"description": "Save usuario"
+					},
+					"response": [
+						{
+							"name": "save",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "\t{\n        \"nome\": \"Lucao\",\n        \"usuario\": \"lucas\",\n        \"email\": \"lucas@admin.com\",\n        \"papel\": {\n            \"id\": 2,\n            \"descricao\": \"Usuario Comum\"\n        },\n        \"imagens\": []\n    }"
+								},
+								"url": {
+									"raw": "http://localhost:8888/GaleriaImagens/usuario/save",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8888",
+									"path": [
+										"GaleriaImagens",
+										"usuario",
+										"save"
+									]
+								}
+							},
+							"status": "Unsupported Media Type",
+							"code": 415,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json;charset=UTF-8"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 24 Oct 2018 14:21:21 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"timestamp\": 1540390881413,\n    \"status\": 415,\n    \"error\": \"Unsupported Media Type\",\n    \"message\": \"Content type 'application/x-www-form-urlencoded;charset=UTF-8' not supported\",\n    \"path\": \"/GaleriaImagens/usuario/save\"\n}"
+						}
+					]
+				},
+				{
+					"name": "getAll",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8888/GaleriaImagens/usuario/getAll?Authorization=Bearer eyJhbGciOiJIUzUxMiJ9.eyJ1c2VyRGV0YWlscyI6IntcImlkXCI6NyxcIm5vbWVcIjpcIlNvbWVudGUgTG9naW5cIixcInNlbmhhXCI6bnVsbCxcInVzdWFyaW9cIjpcImxvZ2luXCIsXCJlbWFpbFwiOlwibG9naW5AZmF0ZWMuY29tXCIsXCJwYXBlbFwiOntcImlkXCI6MixcImRlc2NyaWNhb1wiOlwiVXN1YXJpbyBDb211bVwiLFwiYXV0aG9yaXR5XCI6XCJVc3VhcmlvIENvbXVtXCJ9LFwiaW1hZ2Vuc1wiOltdfSIsImlzcyI6ImNvbS5mYXRlYy5zcHJpbmcuYm9vdCIsInN1YiI6IlNvbWVudGUgTG9naW4iLCJleHAiOjE1NDEwMzM1MTF9.TpZf-RV5OKiLmtBycPbFEvc0OGFe68uQMrNnQnWZEZqorwhT9e3aOtV37X_1LsigbH8xEnPOvkrazB675THE5Q",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8888",
+							"path": [
+								"GaleriaImagens",
+								"usuario",
+								"getAll"
+							],
+							"query": [
+								{
+									"key": "Authorization",
+									"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJ1c2VyRGV0YWlscyI6IntcImlkXCI6NyxcIm5vbWVcIjpcIlNvbWVudGUgTG9naW5cIixcInNlbmhhXCI6bnVsbCxcInVzdWFyaW9cIjpcImxvZ2luXCIsXCJlbWFpbFwiOlwibG9naW5AZmF0ZWMuY29tXCIsXCJwYXBlbFwiOntcImlkXCI6MixcImRlc2NyaWNhb1wiOlwiVXN1YXJpbyBDb211bVwiLFwiYXV0aG9yaXR5XCI6XCJVc3VhcmlvIENvbXVtXCJ9LFwiaW1hZ2Vuc1wiOltdfSIsImlzcyI6ImNvbS5mYXRlYy5zcHJpbmcuYm9vdCIsInN1YiI6IlNvbWVudGUgTG9naW4iLCJleHAiOjE1NDEwMzM1MTF9.TpZf-RV5OKiLmtBycPbFEvc0OGFe68uQMrNnQnWZEZqorwhT9e3aOtV37X_1LsigbH8xEnPOvkrazB675THE5Q"
+								}
+							]
+						},
+						"description": "Usuario GetAll\n"
+					},
+					"response": []
+				},
+				{
+					"name": "get by nome",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8888/GaleriaImagens/usuario/get/claudio",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8888",
+							"path": [
+								"GaleriaImagens",
+								"usuario",
+								"get",
+								"claudio"
+							]
+						},
+						"description": "usuario get/{nome}"
+					},
+					"response": []
+				},
+				{
+					"name": "get full by name",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8888/GaleriaImagens/usuario/getFull/claudio",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8888",
+							"path": [
+								"GaleriaImagens",
+								"usuario",
+								"getFull",
+								"claudio"
+							]
+						},
+						"description": "get view usuario full by nome usuario\n"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Imagem",
+			"item": [
+				{
+					"name": "save",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"nome\":\"Imagem Sham\",\n\t\"tamanho\":\"768x628\",\n\t\"tipo\":\"jpg\",\n\t\"usuario\":{\n\t\t\"id\": 2\t\n\t}\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8888/GaleriaImagens/imagem/save",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8888",
+							"path": [
+								"GaleriaImagens",
+								"imagem",
+								"save"
+							]
+						},
+						"description": "save imagem\n"
+					},
+					"response": []
+				},
+				{
+					"name": "get by id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8888/GaleriaImagens/imagem/getById/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8888",
+							"path": [
+								"GaleriaImagens",
+								"imagem",
+								"getById",
+								"1"
+							]
+						},
+						"description": "get imagem by id"
+					},
+					"response": []
+				},
+				{
+					"name": "get by usuario",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8888/GaleriaImagens/imagem/getByUsuario/sham",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8888",
+							"path": [
+								"GaleriaImagens",
+								"imagem",
+								"getByUsuario",
+								"sham"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get full by usuario",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8888/GaleriaImagens/imagem/getFullByUsuario/sham",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8888",
+							"path": [
+								"GaleriaImagens",
+								"imagem",
+								"getFullByUsuario",
+								"sham"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get by email",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8888/GaleriaImagens/imagem/getByEmail/sham@admin.com",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8888",
+							"path": [
+								"GaleriaImagens",
+								"imagem",
+								"getByEmail",
+								"sham@admin.com"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get full by email",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8888/GaleriaImagens/imagem/getFullByEmail/sham@admin.com",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8888",
+							"path": [
+								"GaleriaImagens",
+								"imagem",
+								"getFullByEmail",
+								"sham@admin.com"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Server UP",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8888/GaleriaImagens/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"GaleriaImagens",
+						""
+					]
+				},
+				"description": "Testar server up com GET"
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"username\": \"login\",\n\t\"password\": \"123\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8888/GaleriaImagens/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"GaleriaImagens",
+						"login"
+					]
+				},
+				"description": "Login RESTFULL API"
+			},
+			"response": []
+		}
+	]
+}
