@@ -17,7 +17,6 @@ import java.util.HashSet;
 import java.util.Optional;
 import java.util.Set;
 
-@PreAuthorize("isAuthenticated()")
 @Service("usuarioService")
 public class UsuarioServiceImpl implements UsuarioService {
 
@@ -35,6 +34,7 @@ public class UsuarioServiceImpl implements UsuarioService {
 
     }
 
+    @PreAuthorize("isAuthenticated()")
     @Override
     @Transactional
     public Set<Usuario> lerTodos() {
@@ -42,6 +42,7 @@ public class UsuarioServiceImpl implements UsuarioService {
         return set;
     }
 
+    @PreAuthorize("isAuthenticated()")
     @Override
     @Transactional
     public Usuario incluirUsuario(Usuario usuario, EnumPapel papel) {
@@ -56,12 +57,14 @@ public class UsuarioServiceImpl implements UsuarioService {
 
     }
 
+    @PreAuthorize("isAuthenticated()")
     @Override
     @Transactional
     public Optional<Usuario> lerUsuarioByNomeUsuario(String nomeUsuario) {
         return usuarioRepository.findByUsuario(nomeUsuario);
     }
 
+    @PreAuthorize("isAuthenticated()")
     @Override
     @Transactional
     public Usuario atualizarUsuario(Usuario usuario) {

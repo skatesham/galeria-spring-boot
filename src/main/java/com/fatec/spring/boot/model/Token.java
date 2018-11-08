@@ -11,7 +11,11 @@ public class Token{
 	@JsonView({View.Token.class})
 	private long expirate;
 
-	public Token(String token, long expirate){
+	@JsonView({View.Token.class})
+	private Usuario usuario;
+
+	public Token(Usuario usuario, String token, long expirate){
+		this.usuario = usuario;
 		this.token = token;
 		this.expirate = expirate;
 	}
@@ -22,5 +26,21 @@ public class Token{
 
 	public void setToken(String token) {
 		this.token = token;
+	}
+
+	public long getExpirate() {
+		return expirate;
+	}
+
+	public void setExpirate(long expirate) {
+		this.expirate = expirate;
+	}
+
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
 	}
 }

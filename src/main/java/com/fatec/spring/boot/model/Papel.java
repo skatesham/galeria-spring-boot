@@ -13,11 +13,11 @@ public class Papel implements GrantedAuthority {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "pap_id")
-    @JsonView({View.UsuarioFull.class})
+    @JsonView({View.UsuarioFull.class, View.Token.class})
     private long id;
 
     @Column(name = "pap_descricao", unique = true, length = 50, nullable = false)
-    @JsonView({View.UsuarioFull.class})
+    @JsonView({View.UsuarioFull.class, View.Token.class})
     private String descricao;
 
     public Papel() {

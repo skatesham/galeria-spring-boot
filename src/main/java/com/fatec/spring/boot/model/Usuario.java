@@ -19,11 +19,11 @@ public class Usuario implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "usr_id")
-    @JsonView({View.UsuarioFull.class, View.ImagemFull.class})
+    @JsonView({View.UsuarioFull.class, View.ImagemFull.class, View.Token.class})
     private long id;
 
     @Column(name = "usr_nome", length = 50, nullable = false)
-    @JsonView({View.UsuarioSimples.class, View.ImagemFull.class})
+    @JsonView({View.UsuarioSimples.class, View.ImagemFull.class, View.Token.class})
     private String nome;
     
     @JsonView({View.UsuarioSimples.class, View.ImagemFull.class})
@@ -31,16 +31,16 @@ public class Usuario implements UserDetails {
     private String senha;
 
     @Column(name = "usr_usuario", unique = true, nullable = false, length = 25)
-    @JsonView({View.UsuarioSimples.class, View.ImagemFull.class})
+    @JsonView({View.UsuarioSimples.class, View.ImagemFull.class, View.Token.class})
     private String usuario;
 
     @Column(name = "usr_email", unique = true, nullable = false, length = 50)
-    @JsonView({View.UsuarioSimples.class, View.ImagemFull.class})
+    @JsonView({View.UsuarioSimples.class, View.ImagemFull.class, View.Token.class})
     private String email;
 
     @OneToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "usr_id_papel")
-    @JsonView({View.UsuarioFull.class})
+    @JsonView({View.UsuarioFull.class, View.Token.class})
     private Papel papel;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "usuario")

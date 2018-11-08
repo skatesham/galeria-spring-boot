@@ -14,7 +14,9 @@ import java.util.Date;
 
 public class JwtUtils {
 
-    private static final String KEY = "12345678";
+
+    // SHA-256 = "spring-boot"
+    private static final String KEY = "788de2a242ecf85a9cd766eef12e6fc5d24ab7bce701cb19678505af970a4ce2";
 
     public static Token generateToken(Usuario usuario) throws JsonProcessingException {
         ObjectMapper mapper = new ObjectMapper();  // Write Json from an object
@@ -29,7 +31,7 @@ public class JwtUtils {
                 .setExpiration(new Date(agora.getTime() + hora))
                 .signWith(SignatureAlgorithm.HS512, KEY)
                 .compact();
-        return new Token(token, expiration);
+        return new Token(usuario, token, expiration);
     }
 
     public static Usuario parseToken(String token) throws JsonParseException, JsonMappingException, IOException {
