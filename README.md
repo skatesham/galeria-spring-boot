@@ -18,6 +18,7 @@ Para a execução do sistema, necessita de um servidor Mysql com as tabelas a se
 3. [Imagem](https://github.com/skatesham/galeria-spring-boot/blob/master/sql/galeria%20-%20tabela%20imagem.sql)
 
 [Configurar os dados de autenticação do servidor de banco de dados para o Spring Boot](https://github.com/skatesham/galeria-spring-boot/blob/master/src/main/resources/application.properties). 
+
 As configuraçõe são
 - URI;
 - Username;
