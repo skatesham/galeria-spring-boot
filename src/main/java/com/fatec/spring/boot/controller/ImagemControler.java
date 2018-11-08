@@ -18,6 +18,7 @@ import java.util.Collection;
 import java.util.Optional;
 import java.util.Set;
 
+@CrossOrigin
 @RestController
 @RequestMapping("/imagem")
 public class ImagemControler {
@@ -72,7 +73,7 @@ public class ImagemControler {
     }
 
     @RequestMapping(value = "/getFullByUsuario/{nome}")
-    @JsonView(View.imagemFull.class)
+    @JsonView(View.ImagemFull.class)
     @Transactional
     public ResponseEntity<Collection<Imagem>> getImagemFullByUserName(@PathVariable("nome") String nome) {
 
@@ -95,7 +96,7 @@ public class ImagemControler {
     }
 
     @RequestMapping(value = "/getFullByEmail/{email}")
-    @JsonView(View.imagemFull.class)
+    @JsonView(View.ImagemFull.class)
     @Transactional
     public ResponseEntity<Collection<Imagem>> getImagemFullByEmail(@PathVariable("email") String email) {
 

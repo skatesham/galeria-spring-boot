@@ -24,7 +24,11 @@ public class View {
 
     }
 
-    public static class imagemFull extends ImagemSimples {
+    public static class ImagemFull extends ImagemSimples {
+
+    }
+
+    public static class Token {
 
     }
 }

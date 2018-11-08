@@ -22,7 +22,7 @@ public class Imagem {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ima_id")
-    @JsonView({View.imagemFull.class})
+    @JsonView({View.ImagemFull.class})
     private long id;
 
     @Column(name = "ima_nome", length = 50, nullable = false)
@@ -38,11 +38,11 @@ public class Imagem {
     private String tipo;
 
     @Column(name = "ima_imagem")
-    @JsonView({View.imagemFull.class})
+    @JsonView({View.ImagemFull.class})
     private byte[] imagemBlob;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JsonView({View.imagemFull.class})
+    @JsonView({View.ImagemFull.class})
     //@XmlElement(name = "usuario")
     @JoinColumn(name = "ima_id_usuario", nullable = false)
     private Usuario usuario;

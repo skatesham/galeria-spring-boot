@@ -16,7 +16,7 @@ import java.io.IOException;
 
 public class JwtAuthenticationFilter extends GenericFilterBean {
 
-    private static final String HEADER = "Authorization ";
+    private static final String HEADER = "Authorization";
 
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {

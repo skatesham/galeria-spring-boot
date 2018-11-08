@@ -1,9 +1,12 @@
 package com.fatec.spring.boot.controller;
 
+import com.fasterxml.jackson.annotation.JsonView;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fatec.spring.boot.model.Token;
 import com.fatec.spring.boot.model.Usuario;
 import com.fatec.spring.boot.security.JwtUtils;
 import com.fatec.spring.boot.security.Login;
+import com.fatec.spring.boot.view.View;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -26,12 +29,14 @@ public class RootController {
         this.auth = auth;
     }
 
+    @JsonView(View.Token.class)
     @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public ResponseEntity<Usuario> login(@RequestBody Login login, HttpServletResponse response) throws JsonProcessingException {
+    public ResponseEntity<Token> login(@RequestBody Login login, HttpServletResponse response) throws JsonProcessingException {
         Authentication credentials = new UsernamePasswordAuthenticationToken(login.getUsername(), login.getPassword());
         Usuario usuario = (Usuario) auth.authenticate(credentials).getPrincipal();
-        response.setHeader("Token", JwtUtils.generateToken(usuario));
-        return new ResponseEntity<>(usuario, HttpStatus.OK);
+        Token token = JwtUtils.generateToken(usuario);
+        response.setHeader("Token", token.getToken());
+        return new ResponseEntity<>(token, HttpStatus.OK);
 
     }
 

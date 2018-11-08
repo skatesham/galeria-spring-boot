@@ -19,22 +19,23 @@ public class Usuario implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "usr_id")
-    @JsonView({View.UsuarioFull.class, View.imagemFull.class})
+    @JsonView({View.UsuarioFull.class, View.ImagemFull.class})
     private long id;
 
     @Column(name = "usr_nome", length = 50, nullable = false)
-    @JsonView({View.UsuarioSimples.class, View.imagemFull.class})
+    @JsonView({View.UsuarioSimples.class, View.ImagemFull.class})
     private String nome;
-
+    
+    @JsonView({View.UsuarioSimples.class, View.ImagemFull.class})
     @Column(name = "usr_senha", length = 250, nullable = false)
     private String senha;
 
     @Column(name = "usr_usuario", unique = true, nullable = false, length = 25)
-    @JsonView({View.UsuarioSimples.class, View.imagemFull.class})
+    @JsonView({View.UsuarioSimples.class, View.ImagemFull.class})
     private String usuario;
 
     @Column(name = "usr_email", unique = true, nullable = false, length = 50)
-    @JsonView({View.UsuarioSimples.class, View.imagemFull.class})
+    @JsonView({View.UsuarioSimples.class, View.ImagemFull.class})
     private String email;
 
     @OneToOne(fetch = FetchType.EAGER)

@@ -9,9 +9,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class GaleriaImagensApplication {
 
-    @Autowired
-    UsuarioService service;
-
     public static void main(String[] args) {
 
         SpringApplication.run(GaleriaImagensApplication.class, args);
