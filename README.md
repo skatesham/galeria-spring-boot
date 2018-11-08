@@ -31,9 +31,9 @@ http://localhost:8888/GaleriaImagens/
 
 ### Controllers
 Os controllers possui as rotas de acesso do sistema, esses são:
-[Root Controller - Para Login e Teste](https://github.com/skatesham/galeria-spring-boot/blob/master/src/main/java/com/fatec/spring/boot/controller/RootController.java)
-[Usuario Controller - Para operações com usuarios do sistema](https://github.com/skatesham/galeria-spring-boot/blob/master/src/main/java/com/fatec/spring/boot/controller/UsuarioController.java)
-[Imagem Controller - Para operações com as imagens](https://github.com/skatesham/galeria-spring-boot/blob/master/src/main/java/com/fatec/spring/boot/controller/ImagemControler.java)
+- [Root Controller - Para Login e Teste](https://github.com/skatesham/galeria-spring-boot/blob/master/src/main/java/com/fatec/spring/boot/controller/RootController.java)
+- [Usuario Controller - Para operações com usuarios do sistema](https://github.com/skatesham/galeria-spring-boot/blob/master/src/main/java/com/fatec/spring/boot/controller/UsuarioController.java)
+- [Imagem Controller - Para operações com as imagens](https://github.com/skatesham/galeria-spring-boot/blob/master/src/main/java/com/fatec/spring/boot/controller/ImagemControler.java)
 
 
 ### Header de Login
