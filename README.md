@@ -8,10 +8,9 @@ Servidor Spring Boot que funciona como uma API RESTFULL, dessa forma as sessões
 5. Spring Data JPA
 6. Banco de Dados MYSQL
 
+[Um servidor Vue em Typescript foi desenvolvido para ser a interface de usuário desse sistema](https://github.com/skatesham/galeria-vue-interface)
+
 ## Executar projecto
-```
-mvn spring-boot:run
-```
 Para a execução do sistema, necessita de um servidor Mysql com as tabelas a seguir:
 
 1. [Usuario](https://github.com/skatesham/galeria-spring-boot/blob/master/sql/galeria%20-%20tabela%20usuario.sql)
@@ -20,15 +19,22 @@ Para a execução do sistema, necessita de um servidor Mysql com as tabelas a se
 
 e [configurar os dados de autenticação do servidor de banco de dados para o Spring Boot](https://github.com/skatesham/galeria-spring-boot/blob/master/src/main/resources/application.properties). Essas são URL, Username, Password.
 
-### Rotas (Routes)
-#### Inicial
+Após as configurações acima, pode-se utilizar do Maven pra executar o servidor com o seguinte comando:
+```
+mvn spring-boot:run
+```
+
+O servidor será disponibilizado de acordo com as [configurações](https://github.com/skatesham/galeria-spring-boot/blob/master/src/main/resources/application.properties), neste link:
+```
 http://localhost:8888/GaleriaImagens/
-#### Login
-http://localhost:8888/GaleriaImagens/login
-#### Rotas de Usuario
-http://localhost:8888/GaleriaImagens/usuario/
-#### Rotas de Imagens
-http://localhost:8888/GaleriaImagens/imagem/
+```
+
+### Controllers
+Os controllers possui as rotas de acesso do sistema, esses são:
+[Root Controller - Para Login e Teste](https://github.com/skatesham/galeria-spring-boot/blob/master/src/main/java/com/fatec/spring/boot/controller/RootController.java)
+[Usuario Controller - Para operações com usuarios do sistema](https://github.com/skatesham/galeria-spring-boot/blob/master/src/main/java/com/fatec/spring/boot/controller/UsuarioController.java)
+[Imagem Controller - Para operações com as imagens](https://github.com/skatesham/galeria-spring-boot/blob/master/src/main/java/com/fatec/spring/boot/controller/ImagemControler.java)
+
 
 ### Header de Login
 > Authorization = token
