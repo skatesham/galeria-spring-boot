@@ -44,7 +44,6 @@ public class Usuario implements UserDetails {
     private Papel papel;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "usuario")
-    @JsonView({View.UsuarioFull.class})
     private Set<Imagem> imagens;
 
     public Usuario() {

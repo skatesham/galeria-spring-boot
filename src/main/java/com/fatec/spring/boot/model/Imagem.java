@@ -26,18 +26,19 @@ public class Imagem {
     private long id;
 
     @Column(name = "ima_nome", length = 50, nullable = false)
-    @JsonView({View.UsuarioFull.class, View.ImagemSimples.class})
+    @JsonView({View.ImagemSimples.class})
     private String nome;
 
     @Column(name = "ima_tamanho", length = 50, nullable = false)
-    @JsonView({View.UsuarioFull.class, View.ImagemSimples.class})
+    @JsonView({View.ImagemSimples.class})
     private String tamanho;
 
     @Column(name = "ima_tipo", length = 20, nullable = false)
-    @JsonView({View.UsuarioFull.class, View.ImagemSimples.class})
+    @JsonView({View.ImagemSimples.class})
     private String tipo;
 
-    @Column(name = "ima_imagem")
+    //@Lob
+    @Column(name = "ima_imagem", columnDefinition="BLOB")
     @JsonView({View.ImagemFull.class})
     private byte[] imagemBlob;
 
@@ -47,7 +48,7 @@ public class Imagem {
     @JoinColumn(name = "ima_id_usuario", nullable = false)
     private Usuario usuario;
 
-    @Column(name = "ima_string")
+    @Column(name = "ima_string", columnDefinition = "MEDIUMTEXT")
     @JsonView({View.ImagemSimples.class})
     private String imagemBase64;
 
