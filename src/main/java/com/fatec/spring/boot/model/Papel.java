@@ -10,6 +10,8 @@ import javax.persistence.*;
 @Table(name = "pap_papel")
 public class Papel implements GrantedAuthority {
 
+    private static final long serialVersionUID = 3078636239920155012L;
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "pap_id")

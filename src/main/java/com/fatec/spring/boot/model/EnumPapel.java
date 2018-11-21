@@ -2,7 +2,7 @@ package com.fatec.spring.boot.model;
 
 public enum EnumPapel {
 
-    VISITANTE("Visitante"), USUARIO_COMUM("Usuario Comum"), ADMINISTRADOR("Administrador"), TESTE("teste");
+    ROLE_VISITANTE("ROLE_VISITANTE"), ROLE_USUARIO_COMUM("ROLE_USUARIO_COMUM"), ROLE_ADMINISTRADOR("ROLE_ADMIN"), TESTE("teste");
 
     private String descricao;
 

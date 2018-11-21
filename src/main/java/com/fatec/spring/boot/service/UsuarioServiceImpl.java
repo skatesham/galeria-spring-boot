@@ -34,7 +34,7 @@ public class UsuarioServiceImpl implements UsuarioService {
 
     }
 
-    @PreAuthorize("isAuthenticated()")
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     @Override
     @Transactional
     public Set<Usuario> lerTodos() {
