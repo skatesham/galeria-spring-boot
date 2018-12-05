@@ -10,6 +10,8 @@ Servidor Spring Boot que funciona como uma API RESTFULL, dessa forma as sessões
 
 [Um servidor Vue em Typescript foi desenvolvido para ser a interface de usuário desse sistema](https://github.com/skatesham/galeria-vue-interface)
 
+[Servidor Vue Implantado no Github Pages](https://skatesham.github.io/galeria-vue-interface/)
+
 ## Executar projeto
 Para a execução do sistema, necessita de um servidor Mysql com as tabelas a seguir:
 
