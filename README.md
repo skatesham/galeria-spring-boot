@@ -8,9 +8,9 @@ Servidor Spring Boot que funciona como uma API RESTFULL, dessa forma as sessões
 5. Spring Data JPA;
 6. Banco de Dados MYSQL.
 
-[Um servidor Vue em Typescript foi desenvolvido para ser a interface de usuário desse sistema](https://github.com/skatesham/galeria-vue-interface)
+[Aplicação Vue em Typescript Github](https://github.com/skatesham/galeria-vue-interface). Essa foi desenvolvido para ser a interface de usuário desse sistema
 
-[Servidor Vue Implantado no Github Pages](https://skatesham.github.io/galeria-vue-interface/)
+[Aplicação Vue Implantado no Github Pages](https://skatesham.github.io/galeria-vue-interface/)
 
 ## Executar projeto
 Para a execução do sistema, necessita de um servidor Mysql com as tabelas a seguir:
