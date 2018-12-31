@@ -38,15 +38,17 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
+             
+        <!-- Security -->
         <dependency>
             <groupId>org.springframework.security</groupId>
             <artifactId>spring-security-web</artifactId>
-            <version>5.1.1.RELEASE</version>
+            <version>[5.1.2,)</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.security</groupId>
             <artifactId>spring-security-config</artifactId>
-            <version>5.1.1.RELEASE</version>
+            <version>[5.1.2,)</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.security</groupId>
@@ -62,19 +64,19 @@
         <dependency>
             <groupId>org.springframework.security</groupId>
             <artifactId>spring-security-web</artifactId>
-            <version>5.1.1.RELEASE</version>
+            <version>[5.1.2,)</version>
         </dependency>
 
         <dependency>
             <groupId>org.springframework.security</groupId>
             <artifactId>spring-security-config</artifactId>
-            <version>5.1.1.RELEASE</version>
+            <version>[5.1.2,)</version>
         </dependency>
 
         <dependency>
             <groupId>org.springframework.security</groupId>
             <artifactId>spring-security-core</artifactId>
-            <version>5.1.1.RELEASE</version>
+            <version>[5.1.2,)</version>
         </dependency>
 
         <dependency>
