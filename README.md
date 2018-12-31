@@ -48,3 +48,6 @@ Os controllers possui as rotas de acesso do sistema, esses são:
 
 #### Modelo do Banco de Dados
 ![alt text](https://raw.githubusercontent.com/skatesham/Galeria-Spring-Boot-API-REST/master/img/galeria%20spring.png)
+
+
+##### Desenvolvido por Sham Vinicius Fiorin
