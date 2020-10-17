@@ -29,6 +29,7 @@ public class UsuarioServiceImpl implements UsuarioService {
     @Override
     @Transactional
     public Usuario incluirUsuario(Usuario usuario) {
+        usuario.setPapel(papelService.incluirPapel(usuario.getPapel()));
         usuario.setSenha(md5(usuario.getSenha()));
         return usuarioRepository.save(usuario);
 
