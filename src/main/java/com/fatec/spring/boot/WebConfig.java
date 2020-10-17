@@ -6,16 +6,12 @@
 package com.fatec.spring.boot;
 
 import org.springframework.context.annotation.Configuration;
-import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
-import org.springframework.web.servlet.config.annotation.CorsRegistry;
-import org.springframework.web.servlet.config.annotation.EnableWebMvc;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+import org.springframework.web.servlet.config.annotation.*;
 
 /**
  * @author shan
  */
 @Configuration
-@EnableWebMvc
 public class WebConfig implements WebMvcConfigurer {
 
     @Override
@@ -24,4 +20,5 @@ public class WebConfig implements WebMvcConfigurer {
         //registry.addMapping("/**").allowedOrigins("http://localhost:8080");
         registry.addMapping("/**").allowedOrigins("*");
     }
+
 }

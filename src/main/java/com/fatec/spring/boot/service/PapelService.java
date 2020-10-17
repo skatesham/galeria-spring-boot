@@ -1,7 +1,7 @@
 package com.fatec.spring.boot.service;
 
-import com.fatec.spring.boot.model.EnumPapel;
 import com.fatec.spring.boot.model.Papel;
+import com.fatec.spring.boot.model.EnumPapel;
 
 import java.util.Optional;
 

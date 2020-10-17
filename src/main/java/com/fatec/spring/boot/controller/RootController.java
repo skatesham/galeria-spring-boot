@@ -30,7 +30,7 @@ public class RootController {
     }
 
     @JsonView(View.Token.class)
-    @RequestMapping(value = "/login", method = RequestMethod.POST)
+    @PostMapping(value = "/login")
     public ResponseEntity<Token> login(@RequestBody Login login, HttpServletResponse response) throws JsonProcessingException {
         Authentication credentials = new UsernamePasswordAuthenticationToken(login.getUsername(), login.getPassword());
         Usuario usuario = (Usuario) auth.authenticate(credentials).getPrincipal();
@@ -40,7 +40,7 @@ public class RootController {
 
     }
 
-    @RequestMapping(value = "/")
+    @GetMapping(value = "/")
     public String teste() {
 
         return "BEM VINDO A API GALERIA DE IMAGENS\n" +

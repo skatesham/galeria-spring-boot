@@ -1,9 +1,9 @@
 package com.fatec.spring.boot.controller;
 
 import com.fasterxml.jackson.annotation.JsonView;
+import com.fatec.spring.boot.view.View;
 import com.fatec.spring.boot.model.Usuario;
 import com.fatec.spring.boot.service.UsuarioService;
-import com.fatec.spring.boot.view.View;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
